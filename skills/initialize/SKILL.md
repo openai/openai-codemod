@@ -48,8 +48,10 @@ dependent work; do not require a mode switch.
    setup guide](../codemod/references/environments/README.md) for the selected
    mode and [set up approved migration skills](references/migration-skills.md#set-up-approved-skills).
    Continue intake while setup is pending; preflight owns capability checks.
-4. [Save and present intent](references/records.md#save-and-present-intent), along
-   with applicable execution details and setup actions. Stop after this scope.
+4. Draft from the [intent template](assets/intent.md) and use the
+   [execution environment template](assets/execution-environment.md) when saving setup details.
+   [Save and present intent](references/records.md#save-and-present-intent) with its
+   linked work item and applicable setup actions. Stop after this scope.
 
 ## Focused follow-ups
 

@@ -1,10 +1,10 @@
 # CodeMod
 
-Use Codex with GitHub Issues, Linear, Jira Cloud, or Git-backed records to plan and
-carry out a migration to a different technology, with reviewed source behaviors,
-target tests, and independent verification against the accepted contract. The current
-workflow supports phased transformation; upgrade and architecture rebuild workflows
-are not yet included.
+Use Codex with GitHub Issues, Linear, Jira Cloud, ChatGPT Space, or Git-backed
+records to plan and carry out a migration to a different technology, with reviewed
+source behaviors, target tests, and independent verification against the accepted
+contract. The current workflow supports phased transformation; upgrade and
+architecture rebuild workflows are not yet included.
 
 CodeMod is a skills-only plugin. It uses the selected record provider directly;
 it has no bundled MCP server, local workflow database, or application dashboard.
@@ -36,7 +36,9 @@ access to a selected records repository; use the GitHub integration first and an
 authenticated GitHub CLI for missing operations. An existing GitHub Project is
 optional and requires separate access. Linear and Jira require a connected integration
 with destination access; Confluence is optional. Git-backed records require a writable
-migration-repository checkout and configured commit identity.
+migration-repository checkout and configured commit identity. For ChatGPT Space,
+Initialize checks read access before offering it. Saving records requires permission
+to create a Space or add Pages in the selected destination.
 
 During intent gathering, choose whether coding issues integrate through short-lived
 PRs or directly into their integration parent. Transform verifies the choice before

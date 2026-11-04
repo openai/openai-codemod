@@ -4,7 +4,7 @@
 
 The 0.2 release line keeps the `codemod` plugin identity and replaces the earlier
 Python/SQLite application with migration skills using GitHub Issues, Linear,
-Jira Cloud, or Git-backed Markdown records. The local dashboard, MCP server, and
+Jira Cloud, ChatGPT Space, or Git-backed Markdown records. The local dashboard, MCP server, and
 old planning, issues, execution, and verify-findings skills are removed. Use
 `@codemod` or `codemod:workflow` to enter the new workflow; individual stage
 skills remain available for focused requests.

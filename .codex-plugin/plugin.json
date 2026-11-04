@@ -1,15 +1,15 @@
 {
   "name": "codemod",
   "version": "0.2.0-alpha.1",
-  "description": "Plan, implement, and independently verify migrations with GitHub Issues, Linear, Jira, or Git records.",
+  "description": "Plan, implement, and independently verify migrations with GitHub Issues, Linear, Jira, ChatGPT Space, or Git records.",
   "author": {
     "name": "OpenAI FDE"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "CodeMod",
-    "shortDescription": "Migrate with GitHub Issues, Linear, Jira, or Git records.",
-    "longDescription": "Use the default workflow to coordinate migration steps from intent through whole-migration verification, or invoke an individual stage for focused work. Transform owns phase implementation, independent phase verification, and repairs. Stages require evidence appropriate to their scope. Intent, the behavior catalog, the migration brief, and changes to agreed outcomes or constraints require human approval. Code and tests stay in Git; reports use the selected store. GitHub Issues uses the GitHub integration with authenticated CLI fallback for missing operations; Projects are optional. Linear and Jira require their connected integrations; Git-backed records use a writable migration checkout and one state branch. Confluence is optional. Upgrade and architecture rebuild workflows are not yet included.",
+    "shortDescription": "Track migrations in GitHub Issues, Linear, Jira, ChatGPT Space, or Git.",
+    "longDescription": "Use the default workflow to coordinate migration steps from intent through whole-migration verification, or invoke an individual stage for focused work. Transform owns phase implementation, independent phase verification, and repairs. Stages require evidence appropriate to their scope. Intent, the behavior catalog, the migration brief, and changes to agreed outcomes or constraints require human approval. Code and tests stay in Git; reports use the selected store. GitHub Issues uses the GitHub integration with authenticated CLI fallback for missing operations; Projects are optional. Linear and Jira require their connected integrations. ChatGPT Space uses Pages for work and reports. Git-backed records use a writable migration checkout and one state branch. Confluence is optional. Upgrade and architecture rebuild workflows are not yet included.",
     "developerName": "OpenAI FDE",
     "category": "Engineering",
     "capabilities": [

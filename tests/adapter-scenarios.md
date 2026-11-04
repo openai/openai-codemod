@@ -14,6 +14,8 @@ test scope and disposable destination; never default to development examples.
 
 | User request and synthetic evidence | Acceptance checks after the trace |
 | --- | --- |
+| Prepare a saved intent for review with each catalog provider. Only the end of the intent template has been read. The linked report covers scope, delivery, and approvals but omits the user's exact answers and their decision to migrate only the pinned snapshot. Both are available in intake. | Read the rest of the template before revising. Restore the original answers and source incorporation policy in the existing report, then check every applicable section of the saved report against the full template and intake before requesting acceptance. |
+| Prepare a migration brief for review. The work item contains a summary, but its report link points back to itself. Run with a Git work file and with a Space work Page. | Follow the link and detect the missing brief. Use the stage template and bound report store, verify the saved brief and corrected link, then apply the brief's remaining review prerequisites. If the report cannot be saved, withhold the acceptance request. |
 | Start a default migration, explicitly Jira-only. An installed Atlassian integration can read an arbitrary space; metadata lists Epic/Task/Sub-task, To Do/In Progress/Done, and Blocks. No Confluence access. | Initialize owns the home, intent, and setup; workflow prepares the three logical groups and default queued records after those choices are saved. No extra Epics or Confluence calls. Select the destination if not supplied, distinguish type names from verified hierarchy, preserve intent/setup gates, and do not claim writes tested. |
 | Start a Jira migration with storage undecided. Jira metadata succeeds; optional Confluence metadata returns permission denied. | Discovery follows Jira selection/destination. Confluence remains unverified; offer Jira-only and the access limit without auto-selecting a store, changing permissions, or blocking Jira-only. |
 | Confluence discovery returns a partial page with global spaces, then a supplied destination resolves to a knowledge-base space on a different site. | Inspect the supplied destination rather than treating the first page as absence; use its own site/space identities and confirm the report store. No organization/content crawl. |
@@ -88,6 +90,33 @@ prove live API behavior.
 | A consumer already has 50 incoming blockers but intent has outgoing room. | Stop before adding another blocker; check both endpoints and both directions independently. Do not remove existing requirements to make room. |
 | A later repair needs intent/setup edges, an intent revision replaces a source, or relations change during a multi-edge write. | Recheck full capacity, preserve old required relations and saved IDs, reconcile partial writes by readback, and leave affected work pending until every required edge is verified. |
 | Either endpoint's dependency listing is incomplete. | Mark capacity unverified and do not claim the breakdown or dependent work is ready. |
+
+## ChatGPT Space scenarios
+
+Start Initialize without naming an issue system. Supply a usable Linear candidate
+and vary the Space discovery evidence below. Inspect the order and contents of
+the first provider question. Every trace stops at the chooser with zero writes.
+
+| Supplied Space evidence | Expected chooser behavior |
+| --- | --- |
+| Listing succeeds with a Space, or returns an empty page with a cursor then an empty terminal page. | Call `list_spaces` before the question. Offer ChatGPT Space in both cases. Follow the cursor before reporting no existing Spaces. Creation permission is unverified. |
+| Space operations are absent. | Report which operation is unavailable alongside usable choices. Do not claim installation state or admin policy. |
+| Listing returns an authentication error, an explicit workspace-policy denial, or a timeout. | Distinguish the authentication action, stated policy restriction, and unverified access respectively. Do not offer ChatGPT Space as verified or write a probe. |
+| User names a Space or directly shared parent Page as the candidate destination. | Read the supplied Space and its root, or the Page and its Space metadata, without a workspace-wide lookup. |
+| User instead explicitly selects Linear. | Follow Linear discovery only. Make zero Space calls. |
+
+| Subsequent request and supplied facts | Expected outcome |
+| --- | --- |
+| Select ChatGPT Space. New Space creation is denied, but a shared parent is accessible. Separately, creation times out and two matching Spaces appear. | For denial, offer the existing destination and await selection before creating a home there. For unknown creation, reconcile and pause on ambiguous identity without creating another Space. |
+| An empty account denies `create_space`. Separately, the selected existing Space or shared parent denies creation of the home Page. | Explain the denied write. Offer another available destination or return to the provider chooser if none is available. Leave the migration unbound until the user chooses and a home is verified. |
+| Editing a work Page partially succeeds and a human changes the remaining target block. | Read back receipts and blocks. Preserve the human change, retry only compatible outstanding edits, and leave conflicting work pending. |
+| Initialize a migration under a supplied shared parent. Its sibling migration already has Issues and Resources Pages. | Read back Issues and Resources as direct children of the new home. Create the readiness group and intent issue beneath its Issues Page. Use its Resources Page for reports, updates and optional Sheets. Verify parent IDs and leave the sibling migration untouched. |
+| A readiness group exists beneath Issues but its index entry is missing. Resources links to a sibling migration's report with the same title. | Read both index bodies, add the missing group link, correct the report link, and verify their labels and target IDs on readback. Reuse the existing Pages. |
+| Intake is complete. The intent issue contains a one-paragraph summary and is marked In Review, but no intent report was saved. Repeat with report creation denied. | Withhold the acceptance question. Reconcile the premature review state, save a distinct intent report under Resources and read its required fields and user answers back against intake. Verify the issue and Resources index link to that report ID and the home links to Resources before presenting both Pages for review. On denial, report the unsaved intent and leave the work In Progress. |
+| Resume an earlier flat layout with a readiness group, an existing intent report and a human comment on the intent issue. First request status, then request reorganization. | Status performs zero writes and counts only work items. Reorganization preserves the group, issue and report IDs, comment, links and approval state. A retry reuses the verified parents and records. |
+| Resume from a home Page in a fresh chat. Intent is In Review with User Required. Workflow access links to it in Blocked by. The branch contains a report and an optional Sheet. Repeat with access to the home revoked. | Read-only status identifies one human action and the blocked check. Count two work items, excluding the report and Sheet. Revoked access leaves the saved binding intact and the status unknown. |
+| The home is readable but the work-group listing reports incomplete results. | Report partial inventory. Do not infer that missing work is absent, or mark the migration Completed. |
+| Continue the default workflow with verified prerequisites, human checkpoint decisions and required independent verification. Only ordinary Pages and comments are available. | Carry stable Page references through handoffs, use the current approval and blocker states, and complete only after reconciling all required final work. No Sheet operation is necessary. |
 
 ## Git scenarios
 

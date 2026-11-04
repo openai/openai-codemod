@@ -14,6 +14,7 @@ work grouping, hierarchy, and migration updates.
 | `jira` | Atlassian plugin with Jira access | One migration Epic in a selected Jira space ([Jira adapter](jira/records.md)) | Jira report issues; optional Confluence |
 | `github` | GitHub integration; authenticated GitHub CLI for missing operations | One issue in a selected records repository; an optional existing Project organizes work ([GitHub Issues adapter](github/records.md)) | Dedicated report issues in the selected repository |
 | `git` | Git and access to the selected migration repository | `README.md` in the migration directory ([Git adapter](git/records.md)) | Tracked Markdown in the migration directory |
+| `chatgpt-space` | ChatGPT Space integration and authenticated Space or Page reads | Root Page of a new Space or dedicated Page in an existing Space ([Space adapter](chatgpt-space/records.md)) | Ordinary Pages under the migration home |
 
 Follow each candidate adapter's discovery procedure. Git requires repository and
 file access, not a tracker integration. For plugin-backed providers, match the
@@ -59,7 +60,7 @@ is routing metadata, not another workflow-state file or approval gate:
 | Destination | Selected tenant/site/workspace and native team/space identities; GitHub host, records repository, and optional Project; or Git repository, authoritative branch, and migration directory. No development-account defaults. |
 | Report store | Adapter-supported choice and its exact destination; for an external store record its separate site/space/parent or explicit root placement. |
 | Mappings | Discovered work types, native status identities, review/decision representation, logical work groups, report roles, and human-action marker. |
-| Resource index | Purpose, phase, record role, native identity and verified record reference for saved reports/environment and durable external evidence. Omit artifacts not yet saved. |
+| Resource index | Purpose, phase, record role, native identity and verified record reference for saved reports/environment and durable external evidence. When the adapter uses a dedicated index, store its verified reference here and keep the entries there. Omit artifacts not yet saved. |
 
 Use human-readable fields, not a new state protocol. Work and report artifacts may
 share a native type; preserve their distinct roles. Include report-store metadata
@@ -81,8 +82,9 @@ rules to native operations.
 
 Use the bound provider's [catalog adapter](#provider-catalog) with the owning
 stage's record specification below. If that row also names a procedure for the bound
-provider, follow it alongside the catalog adapter. Coordinators use the selected
-stage's guidance. Native mechanics never override shared dependencies, evidence,
+provider, follow it alongside the catalog adapter. For writes, follow the
+[template and readback rules](README.md#write-migration-records). Coordinators
+use the selected stage's guidance. Native mechanics never override shared dependencies, evidence,
 authority, or stage stopping points.
 
 | Stage | Record guidance |

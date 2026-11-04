@@ -15,8 +15,9 @@ Link verified repository-specific PR URLs in chat and tracker prose; bare `#6` o
 
 Run the [progress checkpoint](lifecycle.md#progress-checkpoint) before the final handoff.
 After verifying the save, open the destination specified by the stage, normally
-the saved document or issue. For a verified web URL, use `open_in_codex`,
-`placement: "right"`, and `target: { type: "browser", url: "<verified URL>" }`.
+the saved document or issue. Use `open_in_codex` with `placement: "right"`.
+For a ChatGPT Space Page, use `target: { type: "page", pageId: "<verified Page ID>" }`.
+For other verified web URLs, use `target: { type: "browser", url: "<verified URL>" }`.
 Follow the bound adapter for local record links.
 Link the destination and distinguish saved work from pending writes or a failed
 opening. If opening is unavailable, the link is sufficient.

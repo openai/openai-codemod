@@ -267,6 +267,14 @@ fixtures.git_local = {
   ROWS: [row('Active work', '2 · file links in chat'), row('Reports', '2 · local only')],
   FRESHNESS_WARNING: 'Local records; file links are in chat.', FRESHNESS_WARNING_VISIBLE: true,
 };
+fixtures.space_review = {
+  ...stage(0), MIGRATION_ID: 'chatgpt-space:example-workspace:space-1:home',
+  MIGRATION_HOME_LABEL: 'Open ChatGPT Space migration', MIGRATION_HOME_URL: 'https://example.com/pages/home',
+  ISSUES_SUMMARY: 'Active issues · 1 · 🚩 1',
+  ISSUES: [{ LABEL: 'page_review — Define migration intent', URL: 'https://example.com/pages/page_review', USER_REQUIRED: true }],
+  ROWS: [row('Workflow access', 'Blocked on intent acceptance', 'is-blocked')],
+  RESOURCES: [{ LABEL: 'Migration intent', URL: 'https://example.com/pages/intent', RECENCY: 'Update time unknown' }],
+};
 fixtures.burndown_early = {
   ...fixtures.burndown, BURNDOWN_POINTS: [[0, 0, 100, false], [1, 1, 100, false], [3, 1, 100, false], [4, 2, 75, false]],
 };
@@ -361,7 +369,7 @@ function checkTemplateContract() {
   assert.equal(render(fixtures.jira_nativereview), render(fixtures.jira_fallbackreview), 'Native and fallback review have the same display contract');
   assert.throws(() => render({ ...fixtures.burndown, STEP_5_CURRENT: 'false' }), /requires step 5/);
   assert.throws(() => render({ ...fixtures.burndown, SCOPE_VISIBLE: false }), /displayed phase scope/);
-  for (const name of ['jira_reportartifact', 'jira_confluence']) {
+  for (const name of ['jira_reportartifact', 'jira_confluence', 'space_review']) {
     assert(!fixtures[name].ISSUES.some(issue => fixtures[name].RESOURCES.some(resource => resource.URL === issue.URL)), `${name}: artifact records do not become active work items`);
   }
   assert.throws(() => render({ ...fixtures.transform, MIGRATION_HOME_VISIBLE: 'false' }), /boolean required/);

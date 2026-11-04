@@ -36,8 +36,10 @@ history. A required upstream report remains a real prerequisite: return missing 
 stale evidence to its owner.
 
 Report artifacts are not executable work: exclude their native states from work
-counts, prerequisite satisfaction, and acceptance. Enforce required report content
-on its owning work item.
+counts, prerequisite satisfaction, and acceptance. Before moving work to review
+or requesting acceptance, follow the owning issue's link to each report required
+for that handoff. Read it back from the bound store and verify the stage's
+required content. Keep the handoff pending if the link, report, or content is missing.
 
 Use human-friendly titles and verified record references without credentials. Keep large logs
 at their source; local paths are not public links. Verify migration

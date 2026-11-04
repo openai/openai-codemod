@@ -10,7 +10,8 @@ Use Initialize's [questions and answers](../SKILL.md#questions-and-answers) for
 provider, destination, and report-store choices.
 
 Before new-migration intake or setup, use the router's provider catalog and each
-candidate's discovery procedure to verify relevant read access. For an explicit
+candidate's discovery procedure to verify relevant read access **before presenting
+the issue-system chooser**. For an explicit
 provider choice, discover only that provider. Git checks the selected repository
 and file access; no tracker integration is required. Present usable providers and
 observed limits, then ask the user to confirm one even if only one is usable. An
