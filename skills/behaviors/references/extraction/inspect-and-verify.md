@@ -79,7 +79,10 @@ them, and leave missing domain knowledge as an explicit question.
    These structural checks catch inconsistent records; they do not establish behavioral truth.
 2. Have a verifier other than the author reread cited source and necessary context.
    Challenge the interpretation, missing conditions, exceptions, shared dependencies,
-   and omitted behavior in inspected units. Record corrections and unresolved
+   and omitted behavior in inspected units. Could an implementation satisfy the catalog
+   as written and still break an in-scope journey or consumer? Check plausible cases
+   against source, tests, or user instructions and add any confirmed missing condition
+   or outcome. Record corrections and unresolved
    disagreements. Model agreement or majority voting is not proof. When independent
    review is unavailable, identify self-verification and its limits honestly.
    Prioritize independent scrutiny of high-consequence behaviors such as money,

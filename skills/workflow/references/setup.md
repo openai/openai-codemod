@@ -23,6 +23,9 @@ issues or dates.
 
 ## Queue and reconcile work
 
+Read each applicable issue template in full before drafting the batch. Read back
+each saved technical issue and fill any gaps in its scope, steps, or required evidence.
+
 Create or reuse the following records in Migration readiness, in this order, so
 their cross-stage dependencies can be linked to known IDs:
 
