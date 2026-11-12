@@ -172,6 +172,34 @@ class ReviewTests(unittest.TestCase):
                     review.aggregate()
                 self.assertFalse(Path("receipt.json").exists())
 
+    def test_git_credential_helper_is_scoped_to_the_actions_fetch(self):
+        tokens = dict.fromkeys(
+            ("GITHUB_TOKEN", "GH_TOKEN", "CODEMOD_REVIEW_GITHUB_TOKEN"), "test-token"
+        )
+        with patch.object(review.subprocess, "run") as run, patch.dict(os.environ, tokens):
+            run.return_value.returncode = 0
+            for actions, command in (
+                ("true", "fetch"),
+                ("true", "diff"),
+                ("true", "show"),
+                ("false", "fetch"),
+            ):
+                with (
+                    self.subTest(actions=actions, command=command),
+                    patch.dict(os.environ, GITHUB_ACTIONS=actions),
+                ):
+                    review.git(command)
+                    argv = run.call_args.args[0]
+                    if actions == "true" and command == "fetch":
+                        self.assertIn("credential.helper=", argv)
+                        self.assertIn(
+                            "credential.https://github.com.helper=!gh auth git-credential", argv
+                        )
+                    else:
+                        self.assertEqual(argv, ["git", command])
+                    if actions == "true" and command != "fetch":
+                        self.assertTrue(tokens.keys().isdisjoint(run.call_args.kwargs["env"]))
+
     def test_prepare_reads_git_objects_without_checkout_or_diff_helpers(self):
         with fixture_directory() as directory:
             pull = {

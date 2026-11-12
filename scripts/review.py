@@ -50,7 +50,22 @@ def write_json(path, value):
 
 
 def git(*args):
-    result = subprocess.run(["git", *args], capture_output=True, check=False)
+    options = []
+    env = None
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        if args[0] == "fetch":
+            # Authenticate this private fetch without saving anything in the checkout.
+            options = [
+                "-c",
+                "credential.helper=",
+                "-c",
+                "credential.https://github.com.helper=!gh auth git-credential",
+            ]
+        else:
+            env = os.environ.copy()
+            for name in ("GITHUB_TOKEN", "GH_TOKEN", "CODEMOD_REVIEW_GITHUB_TOKEN"):
+                env.pop(name, None)
+    result = subprocess.run(["git", *options, *args], env=env, capture_output=True, check=False)
     if result.returncode:
         raise ValueError(f"git {args[0]}: {result.stderr.decode(errors='replace').strip()}")
     return result.stdout.decode("utf-8", errors="replace")
