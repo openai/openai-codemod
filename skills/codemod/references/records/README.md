@@ -66,9 +66,9 @@ Keep existing evidence when refreshing an issue.
 
 ### Write migration records
 
-Before drafting or revising a record, read each applicable stage and provider
-template in full. If a read returns an excerpt, read the remaining sections
-before drafting. Apply each template in full, following its structure and
+Read each applicable stage and provider template from start to finish before
+using it. Do not use `head` or `tail` to read templates. If output is truncated,
+read successive line ranges through the end of each file. Apply the template's structure and
 instructions for required, conditional, and optional fields. Before review,
 read back the saved record and check every applicable section against the
 templates and the source answers or findings. Repair any omissions.

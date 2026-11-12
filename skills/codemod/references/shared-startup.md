@@ -1,6 +1,8 @@
 # Shared startup for migration skills
 
 Apply this guidance whether the skill is invoked directly or by a workflow.
+Whenever a step uses a template from `assets/`, follow the
+[full-template reading rule](records/README.md#write-migration-records) before using it.
 
 ## Check a new migration request
 
