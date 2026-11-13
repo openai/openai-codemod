@@ -6,6 +6,9 @@ prepare → independent expert matrix → validated aggregate pattern.
 
 ## Review policy
 
+If a listed CodeMod owner opens a PR that changes the plugin, Codeownerous
+requires one other reviewer to approve it. That reviewer can be a non-owner.
+
 PRs to `master` that touch the plugin, its review workflow/action, or the shared
 component gate and CodeMod receipt evaluator get a
 path-selected matrix using **gpt-5.6-sol**, medium reasoning, with at most two
