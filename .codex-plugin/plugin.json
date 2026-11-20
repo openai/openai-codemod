@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/openai/fde/tree/master/plugins/delivery/plugins/codemod",
   "repository": "https://github.com/openai/fde",
-  "license": "Proprietary",
+  "license": "Apache-2.0",
   "keywords": [
     "codemod",
     "code-migration",
