@@ -14,15 +14,13 @@ scenarios without changing the renderer or rewriting stage policy. This package 
 local workflow database and does not synchronize providers or move migrations
 between them. The Git provider uses tracked Markdown on one bound state branch.
 
-Validate this package directly as well as running repository plugin
-checks. CodeMod retains its existing root and delivery marketplace registrations. Check
-Markdown links, workflow routing and handoffs, direct stage stopping points,
+Check Markdown links, workflow routing and handoffs, direct stage stopping points,
 read-only status, missing routing or execution records, and supported report stores.
 Separate installed tools, authenticated reads, permission metadata, and actual
 write/readback evidence; development example accounts are never default test
 destinations. Live write validation needs an agreed destination and scope.
 
-Run the standard-library [package checker](tests/check-package.py) from this package
+Run the standard-library [package checker](tests/check-package.py) from the CodeMod source directory
 to validate relative Markdown targets/anchors, provider adapters, stage records,
 and reference routes from every skill to the shared router. Each stage row links
 to its record specification first; append a provider-specific procedure only when
@@ -35,16 +33,12 @@ python3 tests/check-package.py --self-test
 python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-From the repository root, also run `make validate-plugins`. These checks require
-Python 3.11+ for maintainers, not for plugin startup. Customer packaging uses
-the standard-library [packager](scripts/package.py); see
-[distribution](docs/DISTRIBUTION.md) for building and verifying the same ZIP.
-The existing internal [agent review](docs/agent-review.md) remains independent
-of the removed application runtime.
+These checks require Python 3.11 or later. The
+[distribution guide](docs/DISTRIBUTION.md) explains how to build and verify a
+ZIP with the standard-library [packager](scripts/package.py).
 
 Use `--package-root PATH` for a copied package and repeatable `--extra-markdown PATH`
-for additional guidance such as the source repository's export mapping. These are
-developer checks, not plugin runtime dependencies. The
+to check additional Markdown files. The
 [adapter scenarios](tests/adapter-scenarios.md) cover raw provider evidence and
 workflow outcomes separately from structural checks and normalized display fixtures.
 Use the [Git delivery scenarios](tests/git-delivery-scenarios.md) to walk through

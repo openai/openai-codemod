@@ -201,7 +201,7 @@ by the observed elapsed-to-active ratio. A forecast range is not a confidence in
 
 ## Validate the view
 
-For asset changes, run the [rendering check](https://github.com/openai/fde/blob/master/plugins/delivery/plugins/codemod/tests/progress-view.cjs)
+For asset changes, run the [rendering check](https://github.com/openai/openai-codemod/blob/main/tests/progress-view.cjs)
 with existing Playwright and visualization host CSS (command in its header).
 Cover supported providers and selected report stores, steps 0–6, phase verification,
 native and fallback review, independent human-action flags, artifact exclusion,

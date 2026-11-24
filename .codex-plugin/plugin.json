@@ -32,8 +32,8 @@
     "composerIcon": "./assets/icon.svg",
     "logo": "./assets/icon.svg"
   },
-  "homepage": "https://github.com/openai/fde/tree/master/plugins/delivery/plugins/codemod",
-  "repository": "https://github.com/openai/fde",
+  "homepage": "https://github.com/openai/openai-codemod",
+  "repository": "https://github.com/openai/openai-codemod",
   "license": "Apache-2.0",
   "keywords": [
     "codemod",

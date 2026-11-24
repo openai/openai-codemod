@@ -13,20 +13,21 @@ This replaces the earlier SQLite-backed CodeMod application. Read
 
 ## Install
 
-Install `codemod` from your existing managed marketplace when this version is
-available there. Repository users can use the existing `openai-fde` marketplace:
+Install `codemod` from your managed marketplace if it is available there.
+To install from a source checkout, first
+[build and verify the marketplace ZIP](https://github.com/openai/openai-codemod/blob/main/docs/DISTRIBUTION.md#build-and-verify-a-customer-package).
+If you already have a CodeMod package ZIP, start with that ZIP.
+
+Extract the ZIP to a directory you plan to keep. From the parent of the
+extracted `openai-codemod/` directory, run:
 
 ```bash
-codex plugin marketplace add git@github.com:openai/fde.git --ref master
-codex plugin add codemod@openai-fde
+codex plugin marketplace add ./openai-codemod
+codex plugin add codemod@openai-codemod
 ```
 
-For a supplied customer ZIP, extract it and register its `openai-codemod`
-directory as a local marketplace, then install `codemod@openai-codemod`.
-The plugin identity stays `codemod`; no second plugin is required.
-Repository changes do not publish a managed release. Cloud execution requires
-the matching published plugin in that environment; a local installation does
-not make it available there. See [cloud plugin availability](skills/codemod/references/environments/cloud.md#published-plugin).
+Restart Codex. For Cloud tasks, the selected environment needs the published
+plugin. See [cloud plugin availability](skills/codemod/references/environments/cloud.md#published-plugin).
 
 ## Start
 
@@ -101,5 +102,5 @@ source-to-target parity.
 - [CodeGraph](skills/codemod/references/codegraph.md): setup, source graph queries, and saved evidence.
 - [Source-quality analysis](skills/assess/references/investigations/source-quality.md): LOC measurement, duplication, complexity estimates, and supported dead-code checks.
 - [Definitions](skills/codemod/references/definitions.md): source boundaries, migration terminology, and naming.
-- [Developer guide](https://github.com/openai/fde/blob/master/plugins/delivery/plugins/codemod/DEVELOPMENT.md): package architecture, validation, and test instructions.
-- [Distribution guide](https://github.com/openai/fde/blob/master/plugins/delivery/plugins/codemod/docs/DISTRIBUTION.md): maintainer packaging and release instructions.
+- [Developer guide](https://github.com/openai/openai-codemod/blob/main/DEVELOPMENT.md): package architecture, validation, and test instructions.
+- [Distribution guide](https://github.com/openai/openai-codemod/blob/main/docs/DISTRIBUTION.md): build and verify the installable ZIP.

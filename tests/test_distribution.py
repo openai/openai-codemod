@@ -33,7 +33,7 @@ class DistributionTests(unittest.TestCase):
                 shutil.copyfile(source, target)
         self.git("init", "-q")
         # Prove retained developer tooling and removed runtime files cannot enter the ZIP.
-        for relative in ("scripts/review.py", "tests/private.md", "backend/codemod/api.py", ".mcp.json"):
+        for relative in ("scripts/package.py", "tests/private.md", "backend/codemod/api.py", ".mcp.json"):
             target = self.project / relative
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text("excluded fixture\n", encoding="utf-8")
