@@ -2,7 +2,7 @@
 
 Use a disposable installation and repository. This operator-run check is separate
 from package validation; never use an existing customer migration as a fixture.
-Choose an authorized provider destination before live writes.
+Before testing live writes, choose a provider destination you have permission to write to.
 
 1. Install the exact candidate ZIP through its `openai-codemod` marketplace and
    restart Codex. Verify the `codemod` identity, expected version, all ten skills,
